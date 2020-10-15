@@ -12,7 +12,7 @@ public class ImpeCalculator implements Calculator {
 		}
 		
 		long end = System.currentTimeMillis();
-		System.out.printf("ImpeCalculator.factorial(%d) ½ÇÇà½Ã°£ = %d\n", num, (end-start));
+		System.out.printf("ImpeCalculator.factorial(%d) ì‹¤í–‰ì‹œê°„ = %d\n", num, (end-start));
 		
 		return result;
 	}

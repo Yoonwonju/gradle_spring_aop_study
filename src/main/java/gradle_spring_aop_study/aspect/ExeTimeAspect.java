@@ -1,4 +1,4 @@
-package gradle_spring_aop_study.aop03.aspect;
+package gradle_spring_aop_study.aspect;
 
 import java.util.Arrays;
 
@@ -7,18 +7,21 @@ import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 
-// Aspect·Î »ç¿ëÇÒ Å¬·¡½º
+// Aspectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
 @Aspect
+@Order(1)
 public class ExeTimeAspect {
 	
-	// °øÅë±â´ÉÀ» Àû¿ëÇÒ pointcut
-	@Pointcut("execution(public * gradle_spring_aop_study..*(..))")
-	private void publicTarget() {
-	}
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ pointcut
+//	@Pointcut("execution(public * gradle_spring_aop_study.aop03..*(..))")
+//	private void publicTarget() {
+//	}
 	
-	// °øÅë±â´É ¸Þ¼­µå
-	@Around("publicTarget()")
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
+//	@Around("publicTarget()")
+	@Around("CommonPointcut.commonTarget()")
 	public Object measure(ProceedingJoinPoint joinPoint) throws Throwable {
 		long start = System.nanoTime();
 		try {
@@ -27,7 +30,7 @@ public class ExeTimeAspect {
 		}finally {
 			long finish = System.nanoTime();
 			Signature sig = joinPoint.getSignature();
-			System.out.printf("%s.%s(%s) ½ÇÇà ½Ã°£ : %d ns\n",
+			System.out.printf("%s.%s(%s) ì‹¤í–‰ì‹œê°„ : %d ns\n",
 					joinPoint.getTarget().getClass().getSimpleName(),
 					sig.getName(), Arrays.toString(joinPoint.getArgs()),
 					(finish - start));

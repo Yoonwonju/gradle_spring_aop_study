@@ -12,14 +12,14 @@ public class Main {
 		start = System.currentTimeMillis();
 		res = impeCal.factorial(num);
 		end = System.currentTimeMillis();
-		System.out.printf("ImpeCalculator.factorial(%d) ½ÇÇà½Ã°£ = %d%n", num, (end-start));
+		System.out.printf("ImpeCalculator.factorial(%d) ì‹¤í–‰ì‹œê°„ = %d%n", num, (end-start));
 		System.out.printf("%d! = %d%n", num, res);
 		
 		Calculator recCal = new RecCalculator();
 		start = System.currentTimeMillis();
 		res = recCal.factorial(num);
 		end = System.currentTimeMillis();
-		System.out.printf("RecCalculator.factorial(%d) ½ÇÇà½Ã°£ = %d%n", num, (end-start));
+		System.out.printf("RecCalculator.factorial(%d) ì‹¤í–‰ì‹œê°„ = %d%n", num, (end-start));
 		System.out.printf("%d! = %d%n", num, res);
 	}
 
